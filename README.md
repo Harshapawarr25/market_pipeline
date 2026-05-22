@@ -6,11 +6,12 @@ A Python-based Market data pipeline for fetching, cleaning, preprocessing, and v
 
 ## Features
 
-- Fetches stock market data from an API
+- Fetches stock market data from an API save data to csv
 - Cleans and preprocesses raw data
 - Handles invalid values
 - Converts and formats date columns
 - Saves processed datasets to CSV
+- feature engineering on processed data
 - Generates data visualizations using Matplotlib
 - Modular pipeline architecture
 
@@ -25,11 +26,14 @@ market_pipeline/
 │   └── processed/
 │
 ├── charts/
+|
+|––– reports
 │
 ├── fetch_data.py
 ├── clean_data.py
 ├── preprocessing.py
 ├── visualization.py
+├── feature.py
 ├── output.py
 ├── main.py
 └── README.md
@@ -63,6 +67,7 @@ Save processed dataset
 Generate visualizations and outputs
 Example Outputs
 Processed Dataset
+Featured Dataset
 Cleaned CSV files stored in:
 data/processed/
 # Charts
