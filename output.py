@@ -43,10 +43,9 @@ def heat_map(df):
 
 def run_output_file():
 
-    df = pd.read_csv("data/new_data.csv")
+    df = pd.read_csv("data/featured_data.csv")
     plot_close_price(df)
     plot_open_price(df)
     trading_volume(df)
     heat_map(df)
     return df
-

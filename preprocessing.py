@@ -1,11 +1,8 @@
-from data.raw_data import fetch_api
 import pandas as pd
 
-#fetch data
-data = fetch_api()
 
-# data
-df = pd.DataFrame(data['data'])
+#data from csv
+df = pd.read_csv("data/raw_data.csv")
 
 def preprocess(df):
     # split month 
@@ -24,11 +21,11 @@ def preprocess(df):
         parts.str[0]
     )
 
-    #round float cols
+    #normalisation 
     new_col = df.columns.drop(['split_factor','dividend','symbol', 'exchange', 'date', 'month' , 'year'])
     for col in new_col:
         df[col] = df[col].round()
-
+    
     return(df)
    
 def run_preprocessing_pipeline(df):
@@ -36,6 +33,5 @@ def run_preprocessing_pipeline(df):
     df = preprocess(df)
     df.to_csv("data/new_data.csv",index = False)
     return df
-
 
 

@@ -1,6 +1,7 @@
 import requests 
 from dotenv import load_dotenv
 import os
+import pandas as pd
 
 
 
@@ -21,5 +22,20 @@ def fetch_api():
         print(f"An error occured:{e}")
         raise
 
+def raw_data():
+    # fetch api data
+    data = fetch_api()
+
+    df = pd.DataFrame(data['data'])
+
+    # save raw dataset snapshot
+    df.to_csv("data/raw_data.csv", index=False)
+
+    print("CSV file saved successfully")
+
+    return df
+
+#to fetch api data and convert into csv sheet
+raw_data()
 
 

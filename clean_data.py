@@ -1,34 +1,77 @@
-from data.raw_data import fetch_api
+import json
 import pandas as pd
 
-#fetch data
-data = fetch_api()
 
-#view data
-df = pd.DataFrame(data['data'])
-def view_data(): 
-    print("Market stock data:")
-    print(df.head(6)) # First six dataset
-    print("Generate summary statistics:")
-    print(df.describe()) #summary statistics
+def view_data(df):
+
+    view_output = {
+
+        "market_stock_data": (
+            df.head(6)
+            .to_dict()
+        ),
+
+        "summary_statistics": (
+            df.describe(include='all')
+            .fillna(0)
+            .to_dict()
+        )
+    }
+
+    print(
+        json.dumps(
+            view_output,
+            indent=4,
+            default=str
+        )
+    )
+
     return df
 
-#clean data
+
 def analyze_data(df):
-    print("counting unique values for each features: ") 
-    print(df.nunique())
-    #find percentage of missing value
-    print("total missing values for each field: ") 
-    print(df.isnull().sum())
-    print("missings values in perc:\n")
-    print((df.isnull().sum() / len(df)) * 100)
+
+    analytics_output = {
+
+        "unique_values": (
+            df.nunique()
+            .to_dict()
+        ),
+
+        "missing_values": (
+            df.isnull()
+            .sum()
+            .to_dict()
+        ),
+
+        "missing_percentage": (
+            (
+                df.isnull().sum() / len(df)
+            ) * 100
+        ).to_dict()
+    }
+
+    print(
+        json.dumps(
+            analytics_output,
+            indent=4
+        )
+    )
+
     return df
 
 
 def run_clean_pipeline():
-    df = view_data()
+    
+    df = pd.read_csv("data/raw_data.csv")
+    df = view_data(df)
     df = analyze_data(df)
+
     return df
+
+
+
+
 
 #missing value is zero hence data is already cleaned
 
