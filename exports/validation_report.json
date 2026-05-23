@@ -1,0 +1,26 @@
+{
+    "duplicate_rows": 0,
+    "negative_open_prices": 0,
+    "negative_close_prices": 0,
+    "negative_high_prices": 0,
+    "negative_low_prices": 0,
+    "negative_volume": 0,
+    "invalid_dates": 0,
+    "data_types": {
+        "open": "float64",
+        "high": "float64",
+        "low": "float64",
+        "close": "float64",
+        "volume": "float64",
+        "adj_high": "float64",
+        "adj_low": "float64",
+        "adj_close": "float64",
+        "adj_open": "float64",
+        "adj_volume": "float64",
+        "split_factor": "float64",
+        "dividend": "float64",
+        "symbol": "object",
+        "exchange": "object",
+        "date": "object"
+    }
+}

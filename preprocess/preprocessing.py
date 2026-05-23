@@ -1,4 +1,5 @@
 import pandas as pd
+import os
 
 
 #data from csv
@@ -21,7 +22,7 @@ def preprocess(df):
         parts.str[0]
     )
 
-    #normalisation 
+    # rounding numerical columns
     new_col = df.columns.drop(['split_factor','dividend','symbol', 'exchange', 'date', 'month' , 'year'])
     for col in new_col:
         df[col] = df[col].round()
@@ -31,7 +32,14 @@ def preprocess(df):
 def run_preprocessing_pipeline(df):
     
     df = preprocess(df)
-    df.to_csv("data/new_data.csv",index = False)
+    print("Data preprocessing pipeline started..")
+    try:
+        df.to_csv("data/new_data.csv",index = False)
+
+        if os.path.exists("data/new_data.csv"):
+            print("Data cleaning process completed successfully. Output saved as 'new_data.csv'")
+    except Exception as error:
+        print(f"Error while saving file: {error}")
+
+    
     return df
-
-
