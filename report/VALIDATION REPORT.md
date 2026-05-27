@@ -1,146 +1,215 @@
-# DATA VALIDATION REPORT
+# Market Stock Data Validation Report
 
-## 1. VALIDATION OVERVIEW
+## Dataset Validation Overview
 
-This report verifies the integrity, consistency, and correctness of the stock market dataset.
-
-The validation process checks:
-
-- Duplicate records
-- Negative price values
-- Negative trading volume
-- Invalid dates
-- Data type consistency
+Validation pipeline executed successfully on historical stock market dataset for Apple Inc. (`AAPL`).
 
 ---
 
-# 2. DUPLICATE RECORD VALIDATION
+# 1. Null Detection
+
+Validation performed to identify missing or null values across all dataset columns.
+
+## Validation Results
+
+| Column       | Missing Values | Missing Percentage |
+| ------------ | -------------- | ------------------ |
+| open         | 0              | 0.0%               |
+| high         | 0              | 0.0%               |
+| low          | 0              | 0.0%               |
+| close        | 0              | 0.0%               |
+| volume       | 0              | 0.0%               |
+| adj_high     | 0              | 0.0%               |
+| adj_low      | 0              | 0.0%               |
+| adj_close    | 0              | 0.0%               |
+| adj_open     | 0              | 0.0%               |
+| adj_volume   | 0              | 0.0%               |
+| split_factor | 0              | 0.0%               |
+| dividend     | 0              | 0.0%               |
+| symbol       | 0              | 0.0%               |
+| exchange     | 0              | 0.0%               |
+| date         | 0              | 0.0%               |
+
+## Observation
+
+* No missing values detected.
+* Dataset completeness maintained across all records.
+
+## Validation Status
+
+```text id="y3pf8w"
+PASSED
+```
+
+---
+
+# 2. Duplicate Detection
+
+Duplicate row analysis performed to detect repeated market records.
+
+## Validation Result
+
+| Validation Type | Result |
+| --------------- | ------ |
+| Duplicate Rows  | 0      |
+
+## Observation
+
+* No duplicate records detected.
+* Dataset integrity preserved.
+
+## Validation Status
+
+```text id="01x1iv"
+PASSED
+```
+
+---
+
+# 3. Negative Value Validation
+
+Validation executed to identify invalid negative numerical values.
+
+## Validation Results
+
+| Validation Check       | Result |
+| ---------------------- | ------ |
+| Negative Open Prices   | 0      |
+| Negative Close Prices  | 0      |
+| Negative High Prices   | 0      |
+| Negative Low Prices    | 0      |
+| Negative Volume Values | 0      |
+
+## Observation
+
+* No invalid negative market values detected.
+* All pricing and volume fields remain logically valid.
+
+## Validation Status
+
+```text id="9b3l15"
+PASSED
+```
+
+---
+
+# 4. Datatype Validation
+
+Datatype validation performed to ensure schema consistency.
+
+## Dataset Schema Validation
+
+| Column       | Datatype | Validation Result |
+| ------------ | -------- | ----------------- |
+| open         | float64  | Valid             |
+| high         | float64  | Valid             |
+| low          | float64  | Valid             |
+| close        | float64  | Valid             |
+| volume       | float64  | Valid             |
+| adj_high     | float64  | Valid             |
+| adj_low      | float64  | Valid             |
+| adj_close    | float64  | Valid             |
+| adj_open     | float64  | Valid             |
+| adj_volume   | float64  | Valid             |
+| split_factor | float64  | Valid             |
+| dividend     | float64  | Valid             |
+| symbol       | object   | Valid             |
+| exchange     | object   | Valid             |
+| date         | object   | Valid             |
+
+## Observation
+
+* Numerical columns correctly formatted as float64.
+* Categorical columns validated successfully.
+* Date column structure validated successfully.
+
+## Validation Status
+
+```text id="vr4b2m"
+PASSED
+```
+
+---
+
+# 5. Date Validation
+
+Date format validation executed on all market records.
+
+## Validation Result
 
 | Validation Check | Result |
-|---|---|
-| Duplicate Rows | 0 |
+| ---------------- | ------ |
+| Invalid Dates    | 0      |
 
 ## Observation
 
-- No duplicate records were detected.
-- Dataset uniqueness is maintained.
+* All date entries follow valid ISO datetime format.
+* No corrupted timestamps detected.
+
+## Validation Status
+
+```text id="0n4pnw"
+PASSED
+```
 
 ---
 
-# 3. PRICE VALIDATION
+# 6. Anomaly Detection
 
-## Open Price Validation
+Anomaly detection executed on pricing and volume behavior.
 
-| Check | Result |
-|---|---|
-| Negative Open Prices | 0 |
+## Volatility Analysis
 
-## Close Price Validation
+| Metric                         | Value |
+| ------------------------------ | ----- |
+| Close Price Standard Deviation | 14.64 |
 
-| Check | Result |
-|---|---|
-| Negative Close Prices | 0 |
+### Observation
 
-## High Price Validation
-
-| Check | Result |
-|---|---|
-| Negative High Prices | 0 |
-
-## Low Price Validation
-
-| Check | Result |
-|---|---|
-| Negative Low Prices | 0 |
-
-## Observation
-
-- All stock prices are valid.
-- No negative price values were found.
-- Market pricing data is logically consistent.
+* Market volatility remains within moderate threshold.
+* No extreme market instability detected.
 
 ---
 
-# 4. TRADING VOLUME VALIDATION
+## Volume Analysis
 
-| Validation Check | Result |
-|---|---|
-| Negative Trading Volume | 0 |
+| Metric         | Value         |
+| -------------- | ------------- |
+| Average Volume | 44.34 Million |
+| Maximum Volume | 90.45 Million |
 
-## Observation
+### Observation
 
-- All trading volume values are valid.
-- No corrupted or impossible trading volume values exist.
-
----
-
-# 5. DATE VALIDATION
-
-| Validation Check | Result |
-|---|---|
-| Invalid Dates | 0 |
-
-## Observation
-
-- All date records follow a valid datetime structure.
-- Dataset chronology is maintained correctly.
+* Trading activity remains within expected operational range.
+* No abnormal volume spikes detected.
 
 ---
 
-# 6. DATA TYPE VALIDATION
+## Price Spike Detection
 
-| Column | Data Type |
-|---|---|
-| open | float64 |
-| high | float64 |
-| low | float64 |
-| close | float64 |
-| volume | float64 |
-| adj_high | float64 |
-| adj_low | float64 |
-| adj_close | float64 |
-| adj_open | float64 |
-| adj_volume | float64 |
-| split_factor | float64 |
-| dividend | float64 |
-| symbol | object |
-| exchange | object |
-| date | object |
+### Observation
+
+* No abnormal market spike patterns detected.
+* Daily price movement remains stable.
+
+## Validation Status
+
+PASSED
+
 
 ---
 
-# 7. DATA TYPE OBSERVATIONS
+# Final Validation Summary
 
-## Numerical Columns
+| Validation Layer          | Status |
+| ------------------------- | ------ |
+| Null Detection            | PASSED |
+| Duplicate Detection       | PASSED |
+| Negative Value Validation | PASSED |
+| Datatype Validation       | PASSED |
+| Date Validation           | PASSED |
+| Anomaly Detection         | PASSED |
 
-The following columns are correctly stored as numerical float values:
+## Final Validation Status
 
-- open
-- high
-- low
-- close
-- volume
-- adj_high
-- adj_low
-- adj_close
-- adj_open
-- adj_volume
-- split_factor
-- dividend
-
-## Categorical Columns
-
-The following columns are correctly stored as object types:
-
-- symbol
-- exchange
-
-## Date Column
-
-- The `date` column is currently stored as an object datatype.
-- Converting the date column to datetime format is recommended for time-series analytics.
-
-Example:
-
-```python
-df["date"] = pd.to_datetime(df["date"])
+VALIDATION PIPELINE COMPLETED SUCCESSFULLY

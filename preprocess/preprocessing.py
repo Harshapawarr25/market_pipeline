@@ -33,11 +33,14 @@ def run_preprocessing_pipeline(df):
     
     df = preprocess(df)
     print("Data preprocessing pipeline started..")
+    print("spilting datetime")
+    print("# Converting date format")
+    print("rounding numerical columns")
     try:
         df.to_csv("data/new_data.csv",index = False)
 
         if os.path.exists("data/new_data.csv"):
-            print("Data cleaning process completed successfully. Output saved as 'new_data.csv'")
+            print("Data cleaning process completed successfully. Output saved as 'new_data.csv'\n")
     except Exception as error:
         print(f"Error while saving file: {error}")
 

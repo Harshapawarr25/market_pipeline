@@ -9,7 +9,10 @@ def feature_data(df):
    try :
       df.to_csv("data/featured_data.csv")
       if os.path.exists("data/featured_data.csv"):
-         print("Feature engineering process completed")
+         print("Updating file...")
+         print("Featured dataset saved successfully.")
+         print("Feature engineering process completed successfully.\n")
+         
       
    except Exception as error:
       print(f"Error while saving file: {error}")

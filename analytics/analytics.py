@@ -4,6 +4,12 @@ import pandas as pd
 
 def analyze_data(df):
 
+    print("Running analytics cleaning...")
+    print("Saving market stock data to file...")
+    print("Uploading summary statistics...")
+    print("Uploading missing value percentages...")
+    print("Uploading unique values...")
+
     analytics_output = {
 
         "market_stock_data": (
@@ -38,19 +44,19 @@ def analyze_data(df):
 # save in json format
     with open("exports/analysis_data.json", "w") as file:
         json.dump(analytics_output, file, indent=4)
-        print("data is analysed and cleaned sucssesfully")
+        
+        print("Data is analysed and cleaned sucssesfully\n")
     
 
     return df
 
 
-def run_clean_pipeline():
+def run_anaylzed_pipeline():
     
     df = pd.read_csv("data/raw_data.csv")
     df = analyze_data(df)
 
     return df
-
 
 
 

@@ -57,7 +57,7 @@ def heat_map(df):
     plt.savefig("visualization/stock_chart.png")
     try:
         plt.savefig("visualization/stock_chart.png")
-        print("Heatmap saved successfully")
+        print("Heatmap saved successfully\n")
     except Exception as error:
         print("Error while saving chart")
   
@@ -72,4 +72,4 @@ def run_output_file():
     heat_map(df)
     return df
 
-run_output_file()
+

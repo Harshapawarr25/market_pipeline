@@ -4,6 +4,7 @@ import pandas as pd
 
 def validate_data(df):
 
+    print("Running validation pipeline...")
     required_columns = [
         "open", "high", "low", "close",
         "volume", "date", "symbol"
@@ -59,8 +60,10 @@ def validate_data(df):
     # save validation report
     with open("exports/validation_report.json", "w") as file:
         json.dump(validation_output, file, indent=4)
-
-    print("Data validation completed successfully")
+    print("checking duplicate rows")
+    print("validating negative value")
+    print("validating date format")
+    print("Data validation completed\n")
 
     return df
 
