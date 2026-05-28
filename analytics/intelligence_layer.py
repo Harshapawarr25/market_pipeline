@@ -138,3 +138,5 @@ def generate_intelligence_contract(df):
     print("Risk signal evaluation completed")
     print("Intelligence contract generated successfully.\n")
 
+    return df
+

@@ -1,7 +1,7 @@
 {
     "schema_version": "1.0.0",
     "request_id": "INTELLIGENCE-LAYER-001",
-    "timestamp_utc": "2026-05-27T11:37:28.570150",
+    "timestamp_utc": "2026-05-28T12:05:14.896994",
     "market_intelligence": {
         "market_trend": "BULLISH",
         "volatility_level": "LOW",
@@ -14,10 +14,10 @@
         "price_spike_detected": false
     },
     "statistical_intelligence": {
-        "average_close_price": 266.8593,
-        "average_daily_movement": 0.2618700000000004,
+        "average_close_price": 267.6017,
+        "average_daily_movement": 0.28422000000000053,
         "rolling_average_window": 7,
-        "rolling_average_value": 266.42
+        "rolling_average_value": 262.80285714285714
     },
     "deterministic_observations": [
         "Market intelligence generated successfully",

@@ -3,6 +3,7 @@ from preprocess.preprocessing import run_preprocessing_pipeline
 from analytics.feature import feature_data
 from analytics.analytics import run_anaylzed_pipeline
 from analytics.intelligence_layer import generate_intelligence_contract
+from analytics.analysis_contact_v1 import analysis_contract
 from visualization.output import run_output_file
 
 
@@ -13,6 +14,7 @@ def run_main_pipeline():
     df = feature_data(df)
     df = run_anaylzed_pipeline()
     df = generate_intelligence_contract(df)
+    df = analysis_contract(df)
     df = run_output_file()
     return df
 

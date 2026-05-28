@@ -7,7 +7,7 @@ import pandas as pd
 
 load_dotenv()
 api_key = os.getenv("api_key")
-api_url = f'http://api.marketstack.com/v1/eod?access_key={api_key}&symbols=AAPL'
+api_url = f'https://api.marketstack.com/v1/eod?access_key={api_key}&symbols=AAPL'
 
 
 

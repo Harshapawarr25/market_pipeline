@@ -1,51 +1,53 @@
 {
-  "schema_version": "1.0.0",
-  "request_id": "MARKET-PIPELINE-001",
-  "timestamp_utc": "2026-05-26T00:00:00Z",
-
-  "dataset_summary": {
-    "dataset_name": "stock_market_dataset",
-    "total_rows": 365,
-    "total_columns": 8,
-    "column_names": [
-      "Date",
-      "Open",
-      "High",
-      "Low",
-      "Close",
-      "Adj Close",
-      "Volume",
-      "Price_Difference"
-    ]
-  },
-
-  "quality_metrics": {
-    "missing_values": 0,
-    "duplicate_rows": 0,
-    "invalid_numeric_records": 0,
-    "null_percentage": 0.0,
-    "data_quality_score": 100
-  },
-
-  "derived_metrics": {
-    "average_open_price": 182.45,
-    "average_close_price": 184.12,
-    "highest_volume": 9876543,
-    "lowest_volume": 102345,
-    "average_price_difference": 1.67,
-    "rolling_average_enabled": true
-  },
-
-  "validation_status": {
-    "status": "PASSED",
-    "validation_checks_executed": [
-      "missing_value_check",
-      "duplicate_check",
-      "datatype_validation",
-      "numeric_validation",
-      "dataset_integrity_check"
-    ],
-    "failed_checks": [],
-    "pipeline_execution": "SUCCESS"
-  }
+    "schema_version": "1.0.0",
+    "request_id": "MARKET-PIPELINE-001",
+    "timestamp_utc": "2026-05-28T12:05:14.900263Z",
+    "dataset_summary": {
+        "dataset_name": "stock_market_dataset",
+        "total_rows": 100,
+        "total_columns": 15,
+        "column_names": [
+            "open",
+            "high",
+            "low",
+            "close",
+            "volume",
+            "adj_high",
+            "adj_low",
+            "adj_close",
+            "adj_open",
+            "adj_volume",
+            "split_factor",
+            "dividend",
+            "symbol",
+            "exchange",
+            "date"
+        ]
+    },
+    "quality_metrics": {
+        "missing_values": 8,
+        "duplicate_rows": 0,
+        "invalid_numeric_records": 0,
+        "null_percentage": 0.5333333333333333,
+        "data_quality_score": 100
+    },
+    "derived_metrics": {
+        "average_open_price": 267.31748,
+        "average_close_price": 267.6017,
+        "highest_volume": 90458500,
+        "lowest_volume": 24117049,
+        "rolling_average_enabled": true
+    },
+    "validation_status": {
+        "status": "PASSED",
+        "validation_checks_executed": [
+            "missing_value_check",
+            "duplicate_check",
+            "datatype_validation",
+            "numeric_validation",
+            "dataset_integrity_check"
+        ],
+        "failed_checks": [],
+        "pipeline_execution": "SUCCESS"
+    }
 }
